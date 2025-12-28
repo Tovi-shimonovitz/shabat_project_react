@@ -1,14 +1,18 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+
+import { BaseList } from './Shoping/BaseList'
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
     <>
-      <h1>i was here</h1>
+    <header>
+     <a href="">cooking</a>
+      <a href="">home tasks</a>
+      <a href="">shoping</a>
+    </header>
+     <h1>Preparations for Shabbat</h1>
+
     </>
   )
 }
