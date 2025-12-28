@@ -1,37 +1,48 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
 
 export function BaseList() {
+  let [list, setList] = useState([]);
+  let [inputValue, setInputValue] = useState('');
+  let keyUp = 1;
+  useEffect(() => {
 
-  let [list, setList] = useState(['Diapers','Tissue','Medications']);
+    setList(['Diapers', 'Tissue', 'Medications']);
 
-  const remove = (item)=>{
-    list = list.filter(t => t!== item);
+  }, []);
+
+
+
+  const remove = (item) => {
+    debugger;
+    list = list.filter(t => t !== item);
     setList(list);
   }
 
-  const addItem = (event)=>{
-    debugger;
-    const t = event.target.addItem.value;
-    if(t!== ''){
-      list.push(t);
-      setList(list);
+  const addItem = (event) => {
+    event.preventDefault();
+    if (inputValue) {
+      setList([...list, inputValue]);
+      setInputValue('');
     }
   }
 
   return (
     <>
       <ul>
-           { list.map(t => <h4>{t}</h4>  ) }
+        {list.map(t => <li key={keyUp++}> {t} <button onClick={() => remove(t)}>remove</button> </li>)}
       </ul>
-    
-    <form  onSubmit={addItem} >
-       <label htmlFor="addItem">add item</label>
-        <input type="text" name='addItem' />
-        <button >add</button></form>
-       
+
+
+
+      <form onSubmit={addItem} >
+        <input type="text" id="newItem" value={inputValue}
+          onChange={(e) => setInputValue(e.target.value)} />
+        <button type='submit'>add</button>
+      </form>
+
     </>
-   
+
   )
 }
 
