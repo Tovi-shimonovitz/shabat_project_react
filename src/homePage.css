@@ -1,0 +1,23 @@
+label {
+    margin: 5px 0; /* רווחים בין תוויות לקלטים */
+    font-weight: bold; /* כתב מודגש לתוויות */
+}
+input[type="checkbox"] {
+    margin: 10px 0; /* רווחים סביב קלט של בחירה */
+}
+
+input[type="checkbox"] + label {
+    display: inline; /* תווית ליד קלט של בחירה */
+    margin-left: 5px; /* רווח לאחר קלט הבחירה */
+}
+form {
+    display: flex;
+    flex-direction: column;
+    max-width: 400px; /* גובה מקסימלי של הטופס */
+    margin: 20px auto; /* מרכז את הטופס */
+    padding: 20px;
+    border: 1px solid #ccc; /* גבול מסביב לטופס */
+    border-radius: 5px; /* פינות מעוגלות */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* צל קל */
+    background-color: #f9f9f9; /* צבע רקע */
+}
