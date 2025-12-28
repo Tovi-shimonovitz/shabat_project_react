@@ -1,13 +1,8 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+
+import { BaseList } from './Shoping/BaseList'
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
-
-  
-
 
   return (
     <>
@@ -17,6 +12,7 @@ function App() {
       <a href="">shoping</a>
     </header>
      <h1>Preparations for Shabbat</h1>
+
     </>
   )
 }
