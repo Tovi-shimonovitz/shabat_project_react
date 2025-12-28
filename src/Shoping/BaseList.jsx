@@ -33,8 +33,6 @@ export function BaseList() {
         {list.map(t => <li key={keyUp++}> {t} <button onClick={() => remove(t)}>remove</button> </li>)}
       </ul>
 
-
-
       <form onSubmit={addItem} >
         <input type="text" id="newItem" value={inputValue}
           onChange={(e) => setInputValue(e.target.value)} />

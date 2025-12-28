@@ -12,7 +12,7 @@ function App() {
       <a href="">shoping</a>
     </header>
      <h1>Preparations for Shabbat</h1>
-      <BaseList/>
+
     </>
   )
 }
