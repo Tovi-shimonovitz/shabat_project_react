@@ -6,9 +6,17 @@ import './App.css'
 function App() {
   const [count, setCount] = useState(0)
 
+  
+
+
   return (
     <>
-      <h1>i was here</h1>
+    <header>
+     <a href="">cooking</a>
+      <a href="">home tasks</a>
+      <a href="">shoping</a>
+    </header>
+     <h1>Preparations for Shabbat</h1>
     </>
   )
 }
