@@ -1,6 +1,5 @@
 
 import { BaseList } from './Shoping/BaseList'
-import {AllLists} from './Cooking/AllLists'
 import './App.css'
 
 function App() {
@@ -14,7 +13,6 @@ function App() {
     </header>
      <h1>Preparations for Shabbat</h1>
 
-    <AllLists/>
     </>
   )
 }

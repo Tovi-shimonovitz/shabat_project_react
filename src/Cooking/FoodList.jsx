@@ -31,6 +31,8 @@ export const FoodList=(props)=>{
 
   return (
     <>
+        <p>------------------------------------------------------------------------------------------------</p>
+
     <div  style={{
                 listStyleType: 'none',
                 display: 'flex',
@@ -50,12 +52,11 @@ export const FoodList=(props)=>{
                 {food.map(f => <Food key={f.id} food ={f} deleteFood={deleteFood} setFood={setFood}/>)}
         </ul>
         </div> 
-         <h3>form to add new food for {nameCook}: </h3>
             <form onSubmit={addFood}>
                 <input type="text" name="name" placeholder='name' /> <br />
                 <input type="text" name='prepTime' placeholder='prepTime' /> <br />
                 <br />
-                <button> add new food </button>
+                <button> Add Food to {nameCook}</button>
             </form>
         </div>
 

@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { getBasicCookingArray,addBasic,getFirstSeudaArray,addFirst,getSecondSeudaArray,addSecond,getThirdSeudaArray,addThird,deleteBasic,deleteFirst,deleteSecond,deleteThird } from './data/cooking.js'
+import { getBasicCookingArray,addBasic,getFirstSeudaArray,addFirst,getSecondSeudaArray,addSecond,getThirdSeudaArray,addThird,deleteBasic,deleteFirst,deleteSecond,deleteThird } from '../data/cooking.js'
 import { Food } from './Food.jsx'
 import { FoodList } from './FoodList.jsx'
 

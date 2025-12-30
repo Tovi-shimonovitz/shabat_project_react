@@ -7,6 +7,7 @@ export const Food=(props)=> {
           display:'flex',
           flexDirection:'row',
           alignItems:'center',
+
         // border: '1px solid black',
         // listStyleType: 'none',
         gap: '20px',
@@ -17,7 +18,7 @@ export const Food=(props)=> {
         // height: '40px',
         // fontSize: '77%'
       }} className="foo" >
-            <p><strong>Food:</strong> {food.name}, </p>
+            <p><strong>Food:</strong> {food.name}   </p>
             <p><strong>Preparation time:</strong> {food.prepTime} minutes </p>
             <button onClick={()=>{
 
