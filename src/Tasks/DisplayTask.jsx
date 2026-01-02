@@ -1,22 +1,23 @@
 import React, { useState } from 'react';
-import './BasisTask.css'
+import './styleTask.css';
 
 
-function BasisTask()
+function DisplayTask({initTask})
 {
 
     let keyOfMap=1;
     
-    const [tasks, setTasks] = useState(['Item 1', 'Item 2', 'Item 3', 'Item 4']);
+    const [tasks, setTasks] = useState(initTask);
 
 
          const [inputValue, setInputValue] = useState('');
-
+        const[timeValue,setTimeValue]=useState()
         const addTask = (event) => {
-            event.preventDefault();        
-            if (inputValue) {
-                setTasks([...tasks, inputValue]);
+            event.preventDefault();   
+            if (inputValue&&timeValue) {
+             setTasks([...tasks, { theTask: inputValue, time: timeValue }]);              
                 setInputValue(''); 
+                setTimeValue()
             }
        
         }
@@ -24,18 +25,19 @@ function BasisTask()
         {
             setTasks(tasks.filter(task => task !== item));
         }
-
     return <>
         <ul>
             {tasks.map((item, index) => (
-                <li key={keyOfMap++}>{item}
+                <li key={keyOfMap++}><h1>task:</h1>{item.theTask}<h1>time:</h1>{+item.time+" hour"}
                 <button onClick={() => deleteTask(item)}>delete</button> 
                 </li>
             ))}
         </ul>
     <form action="" onSubmit={addTask}>
-        <input type="text" id="newTask" placeholder="משימה חדשה" value={inputValue}
+        <input type="text" id="newTask" placeholder="new task" value={inputValue}
            onChange={(e) => setInputValue(e.target.value)} />
+           <input type="number" id="newTask" placeholder="time" value={timeValue}
+           onChange={(e) => setTimeValue(e.target.value)} />
         <button type='submit'>add</button>
 
     </form>
@@ -43,4 +45,4 @@ function BasisTask()
     </>
 }
 
-export default BasisTask
+export default DisplayTask
