@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-
+import './BasisTask.css'
 
 
 function BasisTask()
