@@ -6,7 +6,7 @@ export const ShowItem = (props)=>{
         <>
         <li>{item.name} <input type="number" value={amount} onChange={setItem}/>
         <button onClick={()=>{
-            deleteitem()
+            deleteitem(item)
         }}>remove</button>
         </li>
          </>
