@@ -4,7 +4,7 @@ export const ShowItem = (props)=>{
 
     return(
         <>
-        <li>{item.name} <input type="number" value={amount} onChange={()=>{
+        <li>{item.item} <input type="number" value={amount} onChange={()=>{
             
         }}/>
         <button onClick={()=>{
