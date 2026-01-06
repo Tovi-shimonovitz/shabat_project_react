@@ -24,7 +24,7 @@ export const ShowItemList = (props) => {
     const addItem = (event) => {
         event.preventDefault();
         if (inputValue) {
-            setList([...list, { inputValue, amountValue}]);
+            setList([...list, { "item":inputValue,"qty": amountValue}]);
             setInputValue('');
         }
     }
@@ -32,7 +32,7 @@ export const ShowItemList = (props) => {
     return (
         <>
             <ul>
-                {list.map(t => <ShowItem item={t} deleteitem={remove} amount={amountValue} />)}
+                {list.map(t => <ShowItem item={t} deleteitem={remove} amount={t.qty} />)}
             </ul>
 
             <form onSubmit={addItem} >

@@ -1,27 +1,26 @@
 import { ShowItemList } from "./ShowItemList";
+import { getBaseList, getVisitingList , getHostingList,getFridayNightList ,getShabbatMorningList,getThirdMealList} from "../data/Shoping"
 export const ShowAllLists = () => {
-
-    const data = require("../data/Shoping");
 
     return (
         <>
             <h1>Base list</h1>
-            <ShowItemList list={data.getBaseList()} />
+            <ShowItemList list={getBaseList()} />
 
             <h1>Visiting list</h1>
-            <ShowItemList list={data.getVisitingList()} />
+            <ShowItemList list={getVisitingList()} />
 
             <h1>Hosting list</h1>
-            <ShowItemList list={data.getHostingList()} />
+            <ShowItemList list={getHostingList()} />
 
             <h1>Friday Night Meal</h1>
-            <ShowItemList list={data.getFridayNightList()} />
+            <ShowItemList list={getFridayNightList()} />
 
             <h1>Shabbat Morning Meal</h1>
-            <ShowItemList list={data.getShabbatMorningList()} />
+            <ShowItemList list={getShabbatMorningList()} />
 
             <h1>Third Meal</h1>
-            <ShowItemList list={data.getThirdMealList()} />
+            <ShowItemList list={getThirdMealList()} />
 
             <button>save all changes</button>
         </>
