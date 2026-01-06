@@ -26,6 +26,8 @@ function DisplayTask({initTask})
             setTasks(tasks.filter(task => task !== item));
         }
     return <>
+        <h1>_________________________________________________________________________________</h1>
+
         <ul>
             {tasks.map((item, index) => (
                 <li key={keyOfMap++}><h1>task:</h1>{item.theTask}<h1>time:</h1>{+item.time+" hour"}
@@ -41,7 +43,8 @@ function DisplayTask({initTask})
         <button type='submit'>add</button>
 
     </form>
-    
+        <h1>_________________________________________________________________________________</h1>
+    <br /><br /><br /> 
     </>
 }
 
