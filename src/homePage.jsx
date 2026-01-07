@@ -2,11 +2,16 @@
 import './homePage.css'
 
 
-function Shabbat() {
-
+function Shabbat(props) {
+    // setShabbatForm = props.setShabbatForm
+    // shabbatForm = props.shabbatForm
+    // const [shabbatForm, setShabbatForm] = useState({
+    //     guests: "",
+    //     city: "",
+    //     candles: false,
+    // });
     const reset = (event) => {
         event.target.reset();
-
 
     }
 
