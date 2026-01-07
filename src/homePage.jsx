@@ -10,6 +10,7 @@ function Shabbat(props) {
     //     city: "",
     //     candles: false,
     // });
+  
     const reset = (event) => {
         event.target.reset();
 
@@ -32,6 +33,7 @@ function Shabbat(props) {
             <input name="hosting" type="checkbox" />
 
             <button>reset</button>
+          
         </form>
 
     </>
