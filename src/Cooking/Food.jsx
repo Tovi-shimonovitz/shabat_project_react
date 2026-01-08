@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 export const Food = (props) => {
-  const { food, deleteFood, setFood } = props;
+  const { food, deleteFood, setFood, putFood } = props;
   const id = food.id;
   const [name, setName] = useState(food.name);
   const [prepTime, setPrepTime] = useState(food.prepTime);
@@ -45,6 +45,9 @@ export const Food = (props) => {
           <button onClick={(event) => {
             event.preventDefault();
             setActive(!active);
+            putFood(id,name,prepTime).then(data=>{
+                 setFood(data);
+            })
           }}>save</button>
           <button onClick={(event) => {
             event.preventDefault();

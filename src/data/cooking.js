@@ -97,3 +97,27 @@ export const deleteThird = (b) => {
     thirdSeudaArray.splice(index,1);
     return Promise.resolve([...thirdSeudaArray]);
 }
+
+export const putBasic = (id,name,prepTime) => {
+    let index = basicCookingArray.findIndex(e=>e.id==id)
+    basicCookingArray[index]={id,name,prepTime};
+    return Promise.resolve([...basicCookingArray]);
+}
+
+export const putFirst = (id,name,prepTime) => {
+    let index = firstSeudaArray.findIndex(e=>e.id==id)
+    firstSeudaArray[index]={id,name,prepTime};
+    return Promise.resolve([...firstSeudaArray]);
+}
+
+export const putSecond = (id,name,prepTime) => {
+    let index = secondSeudaArray.findIndex(e=>e.id==id)
+    secondSeudaArray[index]={id,name,prepTime};
+    return Promise.resolve([...secondSeudaArray]);
+}
+
+export const putThird = (id,name,prepTime) => {
+     let index = thirdSeudaArray.findIndex(e=>e.id==id)
+    thirdSeudaArray[index]={id,name,prepTime};
+    return Promise.resolve([...thirdSeudaArray]);
+}

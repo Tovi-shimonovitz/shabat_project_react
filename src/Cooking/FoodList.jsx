@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { Food } from './Food.jsx'
 
 export const FoodList=(props)=>{
-    const { getFoodArray, addNewFood,nameCook, deleteFood } = props;
+    const { getFoodArray, addNewFood,nameCook, deleteFood, putFood } = props;
 
   const [food, setFood] = useState([]);
 
@@ -46,7 +46,7 @@ export const FoodList=(props)=>{
                 flexWrap: 'wrap',
                 gap: '1%',
             }}>
-                {food.map(f => <Food key={f.id} food ={f} deleteFood={deleteFood} setFood={setFood}/>)}
+                {food.map(f => <Food key={f.id} putFood={putFood} food ={f} deleteFood={deleteFood} setFood={setFood}/>)}
         </ul>
         </div> 
             <form onSubmit={addFood}>

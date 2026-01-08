@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { getBasicCookingArray, addBasic, getFirstSeudaArray, addFirst, getSecondSeudaArray, addSecond, getThirdSeudaArray, addThird, deleteBasic, deleteFirst, deleteSecond, deleteThird } from '../data/cooking.js'
+import { getBasicCookingArray, addBasic, getFirstSeudaArray, addFirst, getSecondSeudaArray, addSecond, getThirdSeudaArray, addThird, deleteBasic, deleteFirst, deleteSecond, deleteThird, putBasic, putFirst,putSecond,putThird } from '../data/cooking.js'
 import { Food } from './Food.jsx'
 import { FoodList } from './FoodList.jsx'
 
@@ -17,13 +17,13 @@ export const AllLists = () => {
         flexDirection: 'column',
         gap: '2%',
       }}>
-        <FoodList getFoodArray={getBasicCookingArray} addNewFood={addBasic} deleteFood={deleteBasic} nameCook={"Basic"} />
+        <FoodList getFoodArray={getBasicCookingArray} addNewFood={addBasic} deleteFood={deleteBasic} nameCook={"Basic"} putFood={putBasic} />
         <br /><br /><br /><br />
-        <FoodList getFoodArray={getFirstSeudaArray} addNewFood={addFirst} deleteFood={deleteFirst} nameCook={"First Seuda"} />
+        <FoodList getFoodArray={getFirstSeudaArray} addNewFood={addFirst} deleteFood={deleteFirst} nameCook={"First Seuda"} putFood={putFirst} />
         <br /><br /><br /><br />
-        <FoodList getFoodArray={getSecondSeudaArray} addNewFood={addSecond} deleteFood={deleteSecond} nameCook={"Second Seuda"} />
+        <FoodList getFoodArray={getSecondSeudaArray} addNewFood={addSecond} deleteFood={deleteSecond} nameCook={"Second Seuda"} putFood={putSecond} />
         <br /><br /><br /><br />
-        <FoodList getFoodArray={getThirdSeudaArray} addNewFood={addThird} deleteFood={deleteThird} nameCook={"Third Seuda"} />
+        <FoodList getFoodArray={getThirdSeudaArray} addNewFood={addThird} deleteFood={deleteThird} nameCook={"Third Seuda"} putFood={putThird} />
 
       </div>
   
