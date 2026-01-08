@@ -5,9 +5,6 @@ export const FoodList=(props)=>{
     const { getFoodArray, addNewFood,nameCook, deleteFood } = props;
 
   const [food, setFood] = useState([]);
-  // const [first, sesFirst] = useState([]);
-  // const [second, setSecond] = useState([]);
-  // const [third, setThird] = useState([]);
 
     useEffect(() => {
         getFoodArray().then((res) => {
@@ -53,8 +50,8 @@ export const FoodList=(props)=>{
         </ul>
         </div> 
             <form onSubmit={addFood}>
-                <input type="text" name="name" placeholder='name' /> <br />
-                <input type="text" name='prepTime' placeholder='prepTime' /> <br />
+                <input type="text" name="name" placeholder='name' required /> <br />
+                <input type="number" name='prepTime' placeholder='prepTime' /> <br />
                 <br />
                 <button> Add Food to {nameCook}</button>
             </form>
