@@ -38,7 +38,6 @@ function DisplayTask({initTask, addNewTask, deleteTask2})
 
     const deleteTask = async (item) =>{
            try{
-            alert("in try"+item)
            const data =   await deleteTask2(item);
            setTasks(data)
            }
