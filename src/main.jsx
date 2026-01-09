@@ -9,7 +9,6 @@ import TasksWhenTraveling from './Tasks/TaskWhenTraveling.js'
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <App />
-    <Shabbat/>
     <BasisTask/>
   </StrictMode>,
 )
