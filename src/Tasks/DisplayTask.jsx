@@ -1,30 +1,53 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './styleTask.css';
 
 
-function DisplayTask({initTask})
+function DisplayTask({initTask, addNewTask, deleteTask2})
 {
 
     let keyOfMap=1;
-    
-    const [tasks, setTasks] = useState(initTask);
+    const [tasks, setTasks] = useState([]);
+       
+    useEffect(() => {
+    const fetchTasks = async () => {
+      try {
+        const data = await initTask(); 
+        setTasks(data); 
+      } catch (error) {
+        console.error("Error fetching tasks:", error);
+      }
+    };
+    fetchTasks();
+    }, [initTask]); 
 
+    const [inputValue, setInputValue] = useState('');
+    const[timeValue,setTimeValue]=useState()
 
-         const [inputValue, setInputValue] = useState('');
-        const[timeValue,setTimeValue]=useState()
-        const addTask = (event) => {
+    const addTask = async (event) => {
             event.preventDefault();   
             if (inputValue&&timeValue) {
-             setTasks([...tasks, { theTask: inputValue, time: timeValue }]);              
+              const  newTask = { theTask: inputValue, time: timeValue}
+            try{      
+              const   data = await  addNewTask(newTask);
+              setTasks(data)}
+             catch(error){console.error("Error fetching tasks:", error);}
                 setInputValue(''); 
                 setTimeValue()
             }
-       
         }
-        const deleteTask = (item) =>
-        {
-            setTasks(tasks.filter(task => task !== item));
+
+    const deleteTask = async (item) =>{
+           try{
+            alert("in try"+item)
+           const data =   await deleteTask2(item);
+           setTasks(data)
+           }
+           catch(error)
+           {
+          console.error("Error fetching tasks:", error);
+           }
         }
+        
     return <>
         <h1>_________________________________________________________________________________</h1>
 
