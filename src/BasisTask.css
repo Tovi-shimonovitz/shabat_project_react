@@ -1,0 +1,60 @@
+/* רשימת משימות */
+ul {
+  list-style-type: none; /* בלי נקודות */
+  padding: 0;
+  margin: 2rem 0;
+  text-align: left;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+ul li {
+  background-color: #f4f4f4;
+  margin-bottom: 10px;
+  padding: 12px 15px;
+  border-radius: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  font-size: 1.1rem;
+}
+
+/* כפתורי מחיקה והוספה */
+button {
+  background-color: #333;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 6px 12px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #444;
+}
+
+/* טופס הוספה */
+form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  gap: 10px; /* רווח בין אינפוט לכפתור */
+}
+
+form input[type="text"] {
+  padding: 8px 12px;
+  font-size: 1rem;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  width: 250px;
+  transition: border-color 0.3s;
+}
+
+form input[type="text"]:focus {
+  border-color: #333;
+  outline: none;
+}
