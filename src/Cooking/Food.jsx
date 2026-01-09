@@ -40,8 +40,8 @@ export const Food = (props) => {
 
         {/*this div is for edit it*/}
         <div style={active ? styleNone : style}>
-          <input type="text" name="nameN" placeholder="name" onChange={(e) => setName(e.target.value)} style={{ width: '30%' }}/>
-          <input type="number" name="prep" placeholder="prepTime" onChange={(e) => setPrepTime(e.target.value)} style={{ width: '30%' }}/>
+          <input type="text" value={name} name="nameN" placeholder="name" onChange={(e) => setName(e.target.value)} style={{ width: '30%' }}/>
+          <input type="number" value={prepTime} name="prep" placeholder="prepTime" onChange={(e) => setPrepTime(e.target.value)} style={{ width: '30%' }}/>
           <button onClick={(event) => {
             event.preventDefault();
             setActive(!active);
@@ -52,6 +52,8 @@ export const Food = (props) => {
           <button onClick={(event) => {
             event.preventDefault();
             setActive(!active);
+            setName(food.name)
+            setPrepTime(food.prepTime)
           }}>cancel</button>
 
         </div>
