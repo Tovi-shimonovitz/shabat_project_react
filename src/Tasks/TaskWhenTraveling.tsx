@@ -1,21 +1,12 @@
 import DisplayTask from "./DisplayTask"
-
+import {deleteTravelingTasks} from '../data/Task'
+import {addTravelingTask} from '../data/Task'
+import {getTravelingTask} from '../data/Task'
 function TasksWhenTraveling ()
 {
-//   const items =  [
-//           {"theTask":'Arrange the meal',
-//                 "time":0.5
-//              },
-//              {"theTask":'buy gift',
-//                 "time":1},
-//             {"theTask":'Wpack luggage',
-//                 "time":1},
-//              {"theTask":'Check when there is transportation',
-//                 "time":4}]
-
  return <>
           <h1>The task when Ttraveling:</h1>
-          <DisplayTask initTask={items}></DisplayTask>
+          <DisplayTask initTask={getTravelingTask} addNewTask={addTravelingTask} deleteTask2={deleteTravelingTasks}></DisplayTask>
                 </>
 }
 export default TasksWhenTraveling

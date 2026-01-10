@@ -6,10 +6,8 @@ import BasisTask from './Tasks/BasisTask'
 import { Routes, Route, Link } from "react-router-dom";
 import Shabbat from './homePage'
 import { AllLists } from "./Cooking/AllLists";
-import TasksWhenTraveling from "./Tasks/TaskWhenTraveling";
-import TasksWhenHosting from './Tasks/TasksWhenHosting'
 import { ReadyList } from './ViewReadyList/ReadyList'
-
+import {AllTheLists} from './Tasks/AllTheLists'
 
 
 function App() {
@@ -27,7 +25,7 @@ function App() {
 
       <Routes>
 
-        <Route path="/BaseTask" element={<><BasisTask /> <TasksWhenTraveling /> <TasksWhenHosting /></>} />
+        <Route path="/BaseTask" element={<BasisTask />}/>
         <Route path="/BaseCooking" element={<AllLists />} />
         <Route path="/EditCooking" element={<ReadyList />} />
         <Route path="/" element={<Shabbat />} />

@@ -41,7 +41,7 @@ return new Promise((resolve)=>{resolve(BasisTask)})
 export function addBasisTask(newTask)
 {
 BasisTask.push(newTask);
-return new Promise.resolve([...BasisTask])
+return Promise.resolve([...BasisTask])
 }
 export function deleteTask2(task)
 {
@@ -64,7 +64,7 @@ return new Promise((resolve)=>{resolve(tasksWhenHosting)})
 export function addHostingTask(newTask)
 {
    tasksWhenHosting.push(newTask);
-return new Promise.resolve([...tasksWhenHosting])
+return Promise.resolve([...tasksWhenHosting])
 }
 export function deleteHostingTasks(task)
 {
@@ -84,7 +84,7 @@ return new Promise((resolve)=>{resolve(tasksWhenTraveling)})
 export function addTravelingTask(newTask)
 {
    tasksWhenTraveling.push(newTask);
-return new Promise.resolve([...tasksWhenTraveling])
+return Promise.resolve([...tasksWhenTraveling])
 }
 export function deleteTravelingTasks(task)
 {

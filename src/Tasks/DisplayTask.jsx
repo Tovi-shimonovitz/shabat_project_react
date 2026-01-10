@@ -4,10 +4,11 @@ import './styleTask.css';
 
 function DisplayTask({initTask, addNewTask, deleteTask2})
 {
-
     let keyOfMap=1;
     const [tasks, setTasks] = useState([]);
-       
+    const [inputValue, setInputValue] = useState('');
+    const[timeValue,setTimeValue]=useState('')
+
     useEffect(() => {
     const fetchTasks = async () => {
       try {
@@ -20,9 +21,6 @@ function DisplayTask({initTask, addNewTask, deleteTask2})
     fetchTasks();
     }, [initTask]); 
 
-    const [inputValue, setInputValue] = useState('');
-    const[timeValue,setTimeValue]=useState()
-
     const addTask = async (event) => {
             event.preventDefault();   
             if (inputValue&&timeValue) {
@@ -32,7 +30,7 @@ function DisplayTask({initTask, addNewTask, deleteTask2})
               setTasks(data)}
              catch(error){console.error("Error fetching tasks:", error);}
                 setInputValue(''); 
-                setTimeValue()
+                setTimeValue('')
             }
         }
 
