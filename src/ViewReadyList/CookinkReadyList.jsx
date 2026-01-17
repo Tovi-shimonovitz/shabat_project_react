@@ -1,15 +1,11 @@
 import { useEffect, useState } from "react";
-import { ShowList } from "./ShowList";
+import { ShowList } from "./ShowList.jsx";
 import * as cookingList from '../data/cooking.js';
 
 
 
-export const ReadyList = () => {
-
-    console.log('cookingList:', cookingList);
-
-
-    const [lists, setLists] = useState({
+export const CookingReadyList = () => {
+       const [lists, setLists] = useState({
         base: [],
         firstSeuda: [],
         secondSeuda: [],
@@ -37,11 +33,7 @@ export const ReadyList = () => {
     }, []);
 
     const showFood = (food) => `${food.name} making time: ${food.prepTime}`;
-    // const showTask = (task) => `${task.theTask} time: ${task.time}`;
-    // const showShopping = () => "my shopping";
-
-
-
+   
     return (
         <>
 

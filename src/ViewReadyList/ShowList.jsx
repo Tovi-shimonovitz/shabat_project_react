@@ -3,7 +3,7 @@ export const ShowList = (props) => {
 
     return  (
         <>
-            {/* <p><strong>list for: </strong> {listName}  tasks </p> */}
+         
             <ul>
                 {listToShow?.map((item, index) => (
                     <li key={index}>
