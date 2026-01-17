@@ -25,7 +25,7 @@ function App() {
         <Link to="/TaskReadyList"> to show task lists</Link>
         <Link to="/ShopingReadyList"> to show shopping lists</Link>
       </header>
-      <h1>Preparations for Shabbat</h1>
+      {/* <h1>Preparations for Shabbat</h1> */}
 
       <Routes>
         <Route path="/BaseTask" element={<AllTheLists />} />
