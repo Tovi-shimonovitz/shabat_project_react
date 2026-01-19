@@ -5,6 +5,7 @@ import * as shoppingList from '../data/Shoping.js';
 
 
 export const ShoppingReadyList = () => {
+    const spesificShabbat = JSON.parse(localStorage.getItem('shabbatDetailes'));
     const [lists, setLists] = useState({
         base: [],
         shabbatNight: [],
@@ -16,14 +17,36 @@ export const ShoppingReadyList = () => {
     });
 
     useEffect(() => {
-
+        let fridayNightList = [];
+        let hostingList = [];
+        let shabbatMorningList = [];
+        let thirdMealList = [];
+        let visitingList = [];
         const fetchLists = async () => {
             const baseList = await shoppingList.getBaseList();
-            const fridayNightList = await shoppingList.getFridayNightList();
-            const hostingList = await shoppingList.getHostingList();
-            const shabbatMorningList = await shoppingList.getShabbatMorningList();
-            const thirdMealList = await shoppingList.getThirdMealList();
-            const visitingList = await shoppingList.getVisitingList();
+
+            if (spesificShabbat.Location == 'at home') {
+                if (spesificShabbat.num_meal_at_home >= 1) {
+                    fridayNightList = await shoppingList.getFridayNightList();
+                }
+                if (spesificShabbat.num_meal_at_home >= 2) {
+                    shabbatMorningList = await shoppingList.getShabbatMorningList();
+                }
+                if (spesificShabbat.num_meal_at_home == 3) {
+                    thirdMealList = await shoppingList.getThirdMealList();
+                } 
+                if (spesificShabbat.hosting == true) {
+                hostingList = await shoppingList.getHostingList();
+
+            }
+            }
+            else {
+                if (spesificShabbat.Location == 'travel') {
+                    visitingList = await shoppingList.getVisitingList();
+                }
+            }
+           
+
             setLists({
                 base: baseList,
                 shabbatNight: fridayNightList,
@@ -38,8 +61,8 @@ export const ShoppingReadyList = () => {
         fetchLists();
     }, []);
 
-  
-   const showShopping = (shopping) => `${shopping.item} quantity: ${shopping.qty}`;
+
+    const showShopping = (shopping) => `${shopping.item} quantity: ${shopping.qty}`;
 
 
 
@@ -54,10 +77,12 @@ export const ShoppingReadyList = () => {
                 gap: '1%',
             }}>
                 {Object.values(lists).map((list) => (
+                   list.length>0&&(
                     <ShowList
                         listToShow={list}
                         funcToSpesific={showShopping}
                     />
+                   ) 
                 ))}
 
             </ul>

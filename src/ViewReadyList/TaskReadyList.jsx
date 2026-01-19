@@ -5,37 +5,41 @@ import * as taskList from '../data/Task';
 
 
 export const TaskReadyList = () => {
-       const [lists, setLists] = useState({
+    const spesificShabbat = JSON.parse(localStorage.getItem('shabbatDetailes'));
+    const [lists, setLists] = useState({
         base: [],
-        hosting:[],
-        traveling:[]
+        hosting: [],
+        traveling: []
 
     });
 
     useEffect(() => {
 
         const fetchLists = async () => {
+            let hostingsTask = [];
+            let travelingTask = [];
             const baseList = await taskList.getBasisTask();
-            const hostingsTask = await taskList.getHostingsTask();
-            const travelingTask = await taskList.getTravelingTask();
-         
+            if (spesificShabbat.Location == 'at home' && spesificShabbat.hosting) {
+                hostingsTask = await taskList.getHostingsTask();
+            }
+            else {
+                travelingTask = await taskList.getTravelingTask();
+            }
+
+
             setLists({
                 base: baseList,
-                hosting:hostingsTask,
-                traveling:travelingTask
-              });
+                hosting: hostingsTask,
+                traveling: travelingTask
+            });
         };
 
         fetchLists();
     }, []);
 
-   
+
     const showTask = (task) => `${task.theTask} time: ${task.time}`;
-    // const showShopping = () => "my shopping";
-
-
-
-    return (
+       return (
         <>
 
             <ul style={{
@@ -46,10 +50,11 @@ export const TaskReadyList = () => {
                 gap: '1%',
             }}>
                 {Object.values(lists).map((list) => (
-                    <ShowList
+                    list.length>0&&( <ShowList
                         listToShow={list}
                         funcToSpesific={showTask}
-                    />
+                    />)
+                   
                 ))}
 
             </ul>

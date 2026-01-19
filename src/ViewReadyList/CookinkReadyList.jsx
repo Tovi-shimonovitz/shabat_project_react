@@ -5,7 +5,8 @@ import * as cookingList from '../data/cooking.js';
 
 
 export const CookingReadyList = () => {
-       const [lists, setLists] = useState({
+    const spesificShabbat = JSON.parse(localStorage.getItem('shabbatDetailes'));
+    const [lists, setLists] = useState({
         base: [],
         firstSeuda: [],
         secondSeuda: [],
@@ -15,11 +16,24 @@ export const CookingReadyList = () => {
 
     useEffect(() => {
 
+        let firstList = [];
+        let secondList = [];
+        let thirdList = [];
         const fetchLists = async () => {
+         
+            if (spesificShabbat.Location == 'at home') {
+                if (spesificShabbat.num_meal_at_home >= 1) {
+                    firstList = await cookingList.getFirstSeudaArray();
+                }
+                if (spesificShabbat.num_meal_at_home >= 2) {
+                    secondList = await cookingList.getSecondSeudaArray();
+                }
+                if (spesificShabbat.num_meal_at_home == 3) {
+                    thirdList = await cookingList.getThirdSeudaArray();
+                }
+            }
             const baseList = await cookingList.getBasicCookingArray();
-            const firstList = await cookingList.getFirstSeudaArray();
-            const secondList = await cookingList.getSecondSeudaArray();
-            const thirdList = await cookingList.getThirdSeudaArray();
+
             setLists({
                 base: baseList,
                 firstSeuda: firstList,
@@ -33,7 +47,7 @@ export const CookingReadyList = () => {
     }, []);
 
     const showFood = (food) => `${food.name} making time: ${food.prepTime}`;
-   
+
     return (
         <>
 
@@ -45,10 +59,11 @@ export const CookingReadyList = () => {
                 gap: '1%',
             }}>
                 {Object.values(lists).map((list) => (
-                    <ShowList
+                    list.length > 0 && (<ShowList
                         listToShow={list}
                         funcToSpesific={showFood}
-                    />
+                    />)
+
                 ))}
 
             </ul>
