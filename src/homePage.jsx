@@ -3,14 +3,10 @@ import './homePage.css'
 
 
 function Shabbat(props) {
-    // setShabbatForm = props.setShabbatForm
-    // shabbatForm = props.shabbatForm
-    // const [shabbatForm, setShabbatForm] = useState({
-    //     guests: "",
-    //     city: "",
-    //     candles: false,
-    // });
-  
+   const saveDetailes=()=>{
+    
+   }
+  //ghghuh
     const reset = (event) => {
         event.target.reset();
 
@@ -33,7 +29,7 @@ function Shabbat(props) {
             <input name="hosting" type="checkbox" />
 
             <button>reset</button>
-          
+            <button onClick={saveDetailes} >save</button>
         </form>
 
     </>
