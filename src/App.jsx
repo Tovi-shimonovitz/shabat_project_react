@@ -12,6 +12,7 @@ import { TaskReadyList } from './ViewReadyList/TaskReadyList'
 import {ShoppingReadyList} from './ViewReadyList/ShopReadyList'
 
 
+
 function App() {
 
   return (
@@ -21,9 +22,6 @@ function App() {
         <Link to="/BaseTask">home tasks</Link>
         <Link to="/BaseCooking">cooking</Link>
         <Link to="/">shabbat detailes</Link>
-        <Link to="/EditCooking"> to show cooking lists</Link>
-        <Link to="/TaskReadyList"> to show task lists</Link>
-        <Link to="/ShopingReadyList"> to show shopping lists</Link>
       </header>
       <h1>Preparations for Shabbat</h1>
 

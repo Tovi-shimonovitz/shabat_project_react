@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import './homePage.css'
+import ReadyListsLinks from './ReadyListsLinks'
 
 
 function Shabbat(props) {
@@ -10,6 +11,14 @@ function Shabbat(props) {
         num_meal_at_home: 3,
         hosting: false
     });
+    const [isSaved, setIsSaved] = useState(false);
+
+    useEffect(() => {
+        const saved = localStorage.getItem('shabbatDetailes');
+        if (saved) {
+            setIsSaved(true);
+        }
+    }, []);
     const handleChange = (e) => {
         const { name, value, type, checked } = e.target;
 
@@ -22,7 +31,7 @@ function Shabbat(props) {
     const saveDetailes = (e) => {
         e.preventDefault();
         localStorage.setItem('shabbatDetailes', JSON.stringify(typeShabbat));
-         e.target.form.reset();
+        setIsSaved(true);
     }
 
      return <>
@@ -44,6 +53,7 @@ function Shabbat(props) {
             <button type='reset'>reset</button>
             <button type="submit" >save</button>
         </form>
+        {isSaved && <ReadyListsLinks />}
 
     </>
 
